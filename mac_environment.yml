@@ -1,0 +1,28 @@
+name: learn-env
+channels:
+  - apple
+  - conda-forge
+dependencies:
+    - python=3.9
+    - pip>=19.0
+    - jupyter
+    - tensorflow-deps
+    - scikit-learn
+    - scipy
+    - pandas
+    - pandas-datareader
+    - matplotlib
+    - pillow
+    - tqdm
+    - requests
+    - h5py
+    - pyyaml
+    - flask
+    - boto3
+    - ipykernel
+    - pip:
+        - tensorflow-macos==2.9
+        - tensorflow-metal==0.5.0
+        - bayesian-optimization
+        - gym
+        - kaggle
