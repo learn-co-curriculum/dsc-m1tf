@@ -4,7 +4,7 @@
 
 ### Rosetta and emulation
 
-Can't run the rosetta intel emulation and the M1 chip at the same time. This [video](https://www.youtube.com/watch?v=BEUU-icPg78) by Jeff Heaton traces where the error comes from.
+You cannot run the rosetta intel emulation and the M1 chip at the same time. This [video](https://www.youtube.com/watch?v=BEUU-icPg78) by Jeff Heaton traces where the error comes from.
 
 
 ```
@@ -43,11 +43,11 @@ The initial steps
 
 The intermediate steps.
 
-7.  You can download the full [Anaconda](https://docs.anaconda.com/anaconda/install/mac-os/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html). Since using Miniconda gives us more control, we'll download the latter. For Miniconda, there are a number of options for macOS, make sure to download the correct package. N.B. If you download the intel package, Python will still work via Rosetta emulating the intel chip, but TensorFlow will still not work since you'll be missing `tensorflow-deps`. Ergo, downloand this correct M1 package:
+7.  You can download the full [Anaconda](https://docs.anaconda.com/anaconda/install/mac-os/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html). Since using Miniconda gives you more control, you will download the latter. For Miniconda, there are a number of options for macOS, make sure to download the correct package. N.B. If you download the intel package, Python will still work via Rosetta emulating the intel chip, but TensorFlow will still not work since you'll be missing `tensorflow-deps`. Ergo, downloand this correct M1 package:
 
 > **Miniconda3 macOS Apple M1 ARM 64-bit pkg**
 
-8.  The file will be called **Miniconda3-LATEST-MacOSX-arm64.pgk**, where we know we dowloaded the correct one since we see "arm" in the name of the package. So run the installer.
+8.  The file will be called **Miniconda3-LATEST-MacOSX-arm64.pgk**, where you know you dowloaded the correct one since you see "arm" in the name of the package. So run the installer.
 *   At times, Miniconda changes the "verbiage" of the names of the packages, but they should be easily identifiable.
 *   When running the install, make sure to change the location of the disk
 *   Change to **Install for me only**
@@ -76,22 +76,22 @@ Here are the closing steps.
 
 This steps are layed out in more detail in this GitHub [repo](https://github.com/learn-co-curriculum/dsc-data-science-env-config).
 
-13.  Clone the the [dsc-m1tf repo](https://github.com/learn-co-curriculum/dsc-m1tf) and cd to this repo.
-14.  Create the conda environment by running the following in the Terminal, which takes a litle while since we're downloading all of the packages that we need. Most importantly for getting TensorFlow to work on the M1/M2 chip, within the **yaml** file, under *Channel* we have `apple`, under *Dependencies* we have `tensorflow-deps`, and under *pip* we have `ternsorflow-macos` and `tensorflow-metal`.
+13.  Clone the this [dsc-m1tf repo](https://github.com/learn-co-curriculum/dsc-m1tf) and cd into this repo.
+14.  Create the conda environment by running the following in the Terminal, which takes a litle while since you are downloading all of the packages that you need. Most importantly for getting TensorFlow to work on the M1/M2 chip, within the **yaml** file, under *Channel* you have `apple`, under *Dependencies* you have `tensorflow-deps`, and under *pip* you have `ternsorflow-macos` and `tensorflow-metal`.
 ```
 conda env create --name learn-env-m1tf -f mac_environment.yml
 ```
       *N.B.*: I had to downgrade the versions of `tensorflow-macos` and `tensorflow-metal`, viz. to 2.9 and 0.5.0, respectively, to get `model.fit()` to work correctly. Also, in the above GitHub link this is now called `mac_environment_tf.yml`.
-15.  *Sanity check.* To confirm that this worked, run `conda activate learn-env` back in "(base)". You should see that you change from "(base)" to "(learn-env)" and then verify by running `conda info --envs`; an asterisk next to learn-env confirms that this worked.
+15.  *Sanity check.* To confirm that this worked, run `conda activate learn-env-m1tf` back in "(base)". You should see that you change from "(base)" to "(learn-env-m1tf)" and then verify by running `conda info --envs`; an asterisk next to learn-env-m1tf confirms that this worked.
 16.  Now set-up default environment. See the repo for `bash`, here it is for `zsh`
 ```
 echo "conda activate learn-env" >> ~/.zshrc
 source ~/.zshrc
 ```
-16.  We now need to register the environment so that learn-env shows up as a kernel when we run jupyter
+16.  You now need to register the environment so that learn-env-m1tf shows up as a kernel when we run jupyter
 ```
-conda activate learn-env
-python -m ipykernel install --user --name learn-env --display-name "Python (learn-env)"
+conda activate learn-env-m1tf
+python -m ipykernel install --user --name learn-env --display-name "Python (learn-env-m1tf)"
 ```
 
 
