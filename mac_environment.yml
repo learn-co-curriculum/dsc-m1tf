@@ -6,9 +6,11 @@ dependencies:
     - python=3.9
     - pip>=19.0
     - jupyter
+    - seaborn
     - tensorflow-deps
     - scikit-learn
     - scipy
+    - statsmodels
     - pandas
     - pandas-datareader
     - matplotlib
@@ -20,6 +22,24 @@ dependencies:
     - flask
     - boto3
     - ipykernel
+    - pyspark
+    - pip
+    - boto3=1.24.52
+    - cvxpy=1.2.1
+    - folium=0.12
+    - gensim=4.2.0
+    - imbalanced-learn=0.9.1
+    - keras=2.9.0
+    - nltk=3.6.7
+    - openpyxl=3.0.9
+    - pandasql=0.7.3
+    - plotly::plotly=5.10.0
+    - pymongo=4.2.0
+    - regex=2022.7.25
+    - scikit-surprise=1.1.1
+    - tensorflow=2.9.1
+    - xgboost=1.6.1
+    - xlrd
     - pip:
         - tensorflow-macos==2.9
         - tensorflow-metal==0.5.0
@@ -28,3 +48,6 @@ dependencies:
         - kaggle
         - transformers
         - scikeras
+        - prophet
+        - bs4
+        - transformers
